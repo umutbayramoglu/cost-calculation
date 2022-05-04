@@ -1,6 +1,7 @@
 package com.ueb.cost_calculation.base.di
 
 import android.app.Application
+import com.jakewharton.threetenabp.AndroidThreeTen
 import com.ueb.cost_calculation.cost_calculator.di.costCalculatorActivityModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -14,5 +15,6 @@ class CostCalculationApplication: Application() {
             androidContext(this@CostCalculationApplication)
             modules(appModule, costCalculatorActivityModule)
         }
+        AndroidThreeTen.init(this)
     }
 }
