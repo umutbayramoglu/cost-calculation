@@ -9,7 +9,7 @@ import com.ueb.cost_calculation.base.model.entity.BaseEntityModel
 data class ItemEntityModel(
 
     @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    var id: Long,
 
     val name: String,
     val count: Int,
