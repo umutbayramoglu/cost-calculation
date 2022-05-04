@@ -1,6 +1,6 @@
 package com.ueb.cost_calculation.base.network
 
-import com.ueb.cost_calculation.cost_calculator.network.ICostCalculatorService
+import com.ueb.cost_calculation.cost_calculator.network.service.ICostCalculatorService
 
 
 class ApiServiceProvider {

@@ -1,4 +1,4 @@
-package com.ueb.cost_calculation.cost_calculator.network
+package com.ueb.cost_calculation.cost_calculator.network.service
 
 import com.ueb.cost_calculation.cost_calculator.model.response.ItemResponseModel
 import retrofit2.Response
