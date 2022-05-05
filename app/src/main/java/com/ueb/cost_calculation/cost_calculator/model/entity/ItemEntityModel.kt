@@ -1,6 +1,5 @@
 package com.ueb.cost_calculation.cost_calculator.model.entity
 
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
