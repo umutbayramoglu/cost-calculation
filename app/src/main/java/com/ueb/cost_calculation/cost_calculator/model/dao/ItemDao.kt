@@ -13,6 +13,6 @@ interface ItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun upsert(itemEntity:ItemEntityModel)
 
-    @Query("select * from item where name=:itemName")
-    fun getItem(itemName: String): LiveData<ItemEntityModel>
+    @Query("select * from item")
+    fun getItems(): LiveData<List<ItemEntityModel>>
 }

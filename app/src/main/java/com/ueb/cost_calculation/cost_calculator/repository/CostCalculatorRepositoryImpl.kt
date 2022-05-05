@@ -22,10 +22,10 @@ class CostCalculatorRepositoryImpl (
         }
     }
 
-    override suspend fun getItem(name: String): LiveData<ItemEntityModel> {
+    override suspend fun getItems(): LiveData<List<ItemEntityModel>> {
         return withContext(Dispatchers.IO){
             initItemData()
-            return@withContext itemDao.getItem(name)
+            return@withContext itemDao.getItems()
         }
     }
 
