@@ -14,5 +14,5 @@ interface ItemDao {
     fun upsert(itemEntity:ItemEntityModel)
 
     @Query("select * from item")
-    fun getItems(): LiveData<List<ItemEntityModel>>
+    fun getItems(): LiveData<ItemEntityModel>
 }

@@ -10,7 +10,7 @@ class CostCalculatorViewModel (
     private val costCalculatorRepository: CostCalculatorRepository
     ): ViewModel() {
 
-    val items = GlobalScope.async(start = CoroutineStart.LAZY){
-        costCalculatorRepository.getItems()
+    val item = GlobalScope.async(start = CoroutineStart.LAZY){
+        costCalculatorRepository.getItem()
     }
 }

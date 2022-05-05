@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import com.ueb.cost_calculation.cost_calculator.model.dao.ItemDao
 import com.ueb.cost_calculation.cost_calculator.model.entity.ItemEntityModel
 import com.ueb.cost_calculation.cost_calculator.network.datasource.CostCalculatorNetworkDataSource
-import com.ueb.cost_calculation.cost_calculator.util.ItemMapper.Companion.convertResponseModelToEntityModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,11 +17,11 @@ class CostCalculatorRepositoryImpl (
 
     init {
         dataSource.fetchedItems.observeForever { newItem ->
-            persistFetchedItem(convertResponseModelToEntityModel(newItem))
+            persistFetchedItem(newItem)
         }
     }
 
-    override suspend fun getItems(): LiveData<List<ItemEntityModel>> {
+    override suspend fun getItem(): LiveData<ItemEntityModel> {
         return withContext(Dispatchers.IO){
             initItemData()
             return@withContext itemDao.getItems()
@@ -38,7 +37,7 @@ class CostCalculatorRepositoryImpl (
 
     private suspend fun initItemData(){
         if(isFetchNeeded(ZonedDateTime.now().minusHours(1))){
-            dataSource.getItems()
+            dataSource.getItem()
         }
     }
 
