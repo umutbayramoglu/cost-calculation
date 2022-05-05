@@ -6,6 +6,7 @@ import com.ueb.cost_calculation.cost_calculator.network.datasource.CostCalculato
 import com.ueb.cost_calculation.cost_calculator.network.datasource.CostCalculatorNetworkDataSourceImpl
 import com.ueb.cost_calculation.cost_calculator.repository.CostCalculatorRepository
 import com.ueb.cost_calculation.cost_calculator.repository.CostCalculatorRepositoryImpl
+import com.ueb.cost_calculation.cost_calculator.ui.CostCalculatorViewModelFactory
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -22,6 +23,10 @@ val costCalculatorActivityModule = module {
 
         scoped <CostCalculatorRepository>{
             CostCalculatorRepositoryImpl(get(), get())
+        }
+
+        scoped {
+            CostCalculatorViewModelFactory(get())
         }
     }
 }
