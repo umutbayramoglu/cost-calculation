@@ -1,6 +1,7 @@
 package com.ueb.cost_calculation.base.network
 
-import com.ueb.cost_calculation.base.constant.NetworkConstants.Retrofit.BASE_URL
+
+import com.ueb.cost_calculation.base.constant.NetworkConstants.Companion.Retrofit.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
