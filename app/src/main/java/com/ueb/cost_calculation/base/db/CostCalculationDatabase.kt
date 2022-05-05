@@ -1,17 +1,16 @@
 package com.ueb.cost_calculation.base.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.ueb.cost_calculation.cost_calculator.model.dao.ItemDao
 import com.ueb.cost_calculation.cost_calculator.model.entity.ItemEntityModel
+import com.ueb.cost_calculation.cost_calculator.model.entity.ItemPartTypeConverter
 
 @Database(
     entities = [ItemEntityModel::class],
     version = 1
 )
-
+@TypeConverters(ItemPartTypeConverter::class)
 abstract class CostCalculationDatabase : RoomDatabase() {
 
     abstract fun itemDao() : ItemDao
