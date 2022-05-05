@@ -13,15 +13,6 @@ class MainActivity : BaseActivity(), AndroidScopeComponent {
 
         setContentView(R.layout.activity_main)
         startPageFragment(CostCalculatorFragment.newInstance())
-
-        /*GlobalScope.launch(Dispatchers.Main) {
-            val dataSource = CostCalculatorNetworkDataSourceImpl()
-            dataSource.getItems()
-
-            val items = dataSource.fetchedItems.observe(this@MainActivity, Observer {
-                Log.e("MainActivity" , it.name +" "+ it.count)
-            })
-        }*/
     }
 
     override val scope: Scope by activityScope()
