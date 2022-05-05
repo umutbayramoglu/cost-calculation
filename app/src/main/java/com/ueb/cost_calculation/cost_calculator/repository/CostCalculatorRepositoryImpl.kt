@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData
 import com.ueb.cost_calculation.cost_calculator.model.dao.ItemDao
 import com.ueb.cost_calculation.cost_calculator.model.entity.ItemEntityModel
 import com.ueb.cost_calculation.cost_calculator.network.datasource.CostCalculatorNetworkDataSource
+import com.ueb.cost_calculation.cost_calculator.util.ItemMapper.Companion.convertResponseModelToEntityModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.modelmapper.ModelMapper
 import org.threeten.bp.ZonedDateTime
 
 
@@ -18,7 +18,7 @@ class CostCalculatorRepositoryImpl (
 
     init {
         dataSource.fetchedItems.observeForever { newItem ->
-            persistFetchedItem(ModelMapper().map(newItem, ItemEntityModel::class.java))
+            persistFetchedItem(convertResponseModelToEntityModel(newItem))
         }
     }
 
