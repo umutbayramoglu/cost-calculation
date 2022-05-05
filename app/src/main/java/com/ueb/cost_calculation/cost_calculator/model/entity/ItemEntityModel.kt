@@ -17,20 +17,21 @@ data class ItemEntityModel(
 
     val name: String,
     val count: Int,
-    val items: List<ItemPartEntryEntityModel>,
+    val items: List<ItemEntityModel>?,
+    val price: Int?,
 ) : BaseEntityModel() {
 }
 
 class ItemPartTypeConverter{
     @TypeConverter
-    fun toItemPartEntry(value: String?): List<ItemPartEntryEntityModel>{
-        val listType = object :TypeToken<List<ItemPartEntryEntityModel>>(){}.type
+    fun toItemPartEntry(value: String?): List<ItemEntityModel>{
+        val listType = object :TypeToken<List<ItemEntityModel>>(){}.type
         return Gson().fromJson(value, listType)
     }
 
     @TypeConverter
-    fun fromItemPartList(list: List<ItemPartEntryEntityModel>?): String{
-        val listType: Type = object : TypeToken<List<ItemPartEntryEntityModel?>?>() {}.type
+    fun fromItemPartList(list: List<ItemEntityModel>?): String{
+        val listType: Type = object : TypeToken<List<ItemEntityModel?>?>() {}.type
         return Gson().toJson(list, listType)
     }
 }

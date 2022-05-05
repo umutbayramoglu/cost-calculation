@@ -6,5 +6,6 @@ import com.ueb.cost_calculation.base.model.response.BaseResponseModel
 data class ItemResponseModel(
     val name: String,
     val count: Int,
-    val items: List<ItemPartEntryModel>
+    val items: List<ItemResponseModel>?,
+    val price: Int?
 ) : BaseResponseModel()
